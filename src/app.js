@@ -1,9 +1,6 @@
 import { useState } from 'react';
-
 import initialEmails from './data/emails';
-
 import './styles/app.css';
-
 import Emails from './Emails';
 
 const getReadEmails = (emails) => emails.filter((email) => !email.read);
