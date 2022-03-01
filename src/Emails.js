@@ -8,7 +8,7 @@ function Emails(props) {
 							className="select-checkbox"
 							type="checkbox"
 							checked={email.read}
-							onChange={() => toggleRead(email)}
+							onChange={() => props.toggleRead(email)}
 						/>
 					</div>
 					<div className="star">
@@ -16,7 +16,7 @@ function Emails(props) {
 							className="star-checkbox"
 							type="checkbox"
 							checked={email.starred}
-							onChange={() => toggleStar(email)}
+							onChange={() => props.toggleStar(email)}
 						/>
 					</div>
 					<div className="sender">{email.sender}</div>
