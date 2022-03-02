@@ -21,7 +21,9 @@ function Email(props) {
 				/>
 			</div>
 			<div className="sender">{props.email.sender}</div>
-			<div className="title">{props.email.title}</div>
+			<div className="title" onClick={() => props.setSelectedEmail(props.email)}>
+				{props.email.title}
+			</div>
 		</li>
 	);
 }

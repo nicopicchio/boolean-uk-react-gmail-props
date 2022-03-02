@@ -2,6 +2,7 @@ import { useState } from 'react';
 import initialEmails from './data/emails';
 import './styles/app.css';
 import Emails from './Emails';
+import { Fragment } from 'react/cjs/react.development';
 
 const getReadEmails = (emails) => emails.filter((email) => !email.read);
 
@@ -11,6 +12,7 @@ function App() {
 	const [emails, setEmails] = useState(initialEmails);
 	const [hideRead, setHideRead] = useState(false);
 	const [currentTab, setCurrentTab] = useState('inbox');
+	const [selectedEmail, setSelectedEmail] = useState(null);
 
 	const unreadEmails = emails.filter((email) => !email.read);
 	const starredEmails = emails.filter((email) => email.starred);
@@ -87,14 +89,23 @@ function App() {
 				</ul>
 			</nav>
 			<main className="emails">
+				{selectedEmail !== null &&
+					<Fragment>
+						<h2></h2>
+					<p>Email selected!</p>
+					<button onClick={() => setSelectedEmail(null)}>Back to inbox</button>
+				</Fragment>}
+				{selectedEmail === null &&
 				<Emails
-					filteredEmails={filteredEmails}
+					setSelectedEmail={setSelectedEmail}
+					emails={filteredEmails}
 					toggleRead={toggleRead}
 					toggleStar={toggleStar}
-				/>
+				/>}
 			</main>
 		</div>
 	);
 }
 
 export default App;
+0
